@@ -3,6 +3,7 @@ package org.usfirst.frc.team1797.robot;
 import org.usfirst.frc.team1797.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1797.robot.subsystems.Flipper;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeMotors;
+import org.usfirst.frc.team1797.robot.subsystems.IntakeSlidePistons;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeWheelPistons;
 import org.usfirst.frc.team1797.robot.subsystems.Ramp;
 
@@ -23,7 +24,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	public static final Drivetrain DRIVE_TRAIN = new Drivetrain();
 	public static final IntakeMotors intakeMotors = new IntakeMotors();
-	public static final IntakeWheelPistons intakePistons = new IntakeWheelPistons();
+	public static final IntakeWheelPistons intakeWheelPistons = new IntakeWheelPistons();
+	public static final IntakeSlidePistons intakeSlidePistons = new IntakeSlidePistons();
 	public static final Ramp RAMP = new Ramp();
 	public static final Flipper flipper = new Flipper();
 	public static OI oi;
