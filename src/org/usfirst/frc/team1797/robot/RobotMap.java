@@ -78,8 +78,8 @@ public class RobotMap {
 		ROBOT_HARDWARE_PORTS.put("left_ramp_1", 4);
 		ROBOT_HARDWARE_PORTS.put("left_ramp_2", 5);
 		
-		ROBOT_HARDWARE_PORTS.put("right_ramp_1", 7);
-		ROBOT_HARDWARE_PORTS.put("right_ramp_2", 6);
+		ROBOT_HARDWARE_PORTS.put("right_ramp_1", 6);
+		ROBOT_HARDWARE_PORTS.put("right_ramp_2", 7);
 		
 		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston_1", 2);
 		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston_2", 3);
