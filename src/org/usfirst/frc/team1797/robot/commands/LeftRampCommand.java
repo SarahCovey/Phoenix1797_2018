@@ -1,43 +1,42 @@
 package org.usfirst.frc.team1797.robot.commands;
 
 import org.usfirst.frc.team1797.robot.Robot;
-import org.usfirst.frc.team1797.robot.commands.teleoputils.RampDeploy;
-import org.usfirst.frc.team1797.robot.commands.teleoputils.LeftRampLift;
-import org.usfirst.frc.team1797.robot.commands.teleoputils.LeftRampRetract;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class LeftRampCommand extends CommandGroup {
+public class LeftRampCommand extends Command {
 
     public LeftRampCommand() {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.leftRamp);
+    }
 
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
+    // Called just before this Command runs the first time
+    protected void initialize() {
+    	Robot.leftRamp.lift();
+    }
 
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-    	
-    	if(Robot.deployRamp.isDeployed()) {
-    		if(Robot.leftRamp.isExtended()) {
-    			addSequential(new LeftRampRetract());
-    		} else {
-        		addSequential(new LeftRampLift());
-        	}
-    	} else {
-    		addSequential(new RampDeploy());
-    	}
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return false;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+    	Robot.leftRamp.retract();
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    	end();
     }
 }

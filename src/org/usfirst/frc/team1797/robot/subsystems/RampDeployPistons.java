@@ -3,7 +3,6 @@ package org.usfirst.frc.team1797.robot.subsystems;
 import org.usfirst.frc.team1797.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -19,9 +18,13 @@ public class RampDeployPistons extends Subsystem {
 	private long lastAct = Long.MAX_VALUE;
 	private boolean isDeployed = false;
 	
+	
+	
 	public void deploy() {
 		deployPiston.set(DoubleSolenoid.Value.kForward);
 		lastAct = System.currentTimeMillis();
+		System.out.println("RAMP DEPLOYED: "+isDeployed);
+
 		isDeployed = true;
 		System.out.println("RAMP DEPLOYED: "+isDeployed);
 	}
@@ -33,6 +36,7 @@ public class RampDeployPistons extends Subsystem {
 		return lastAct;
 	}
 	public boolean isDeployed() {
+		System.out.println(isDeployed);
 		return isDeployed;
 	}
 	

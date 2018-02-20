@@ -50,10 +50,13 @@ public class OI {
 	public JoystickButton flipButton = new JoystickButton(operatorInput, 6);
 	public JoystickButton leftRampButton = new JoystickButton(operatorInput, 7);
 	public JoystickButton rightRampButton = new JoystickButton(operatorInput, 8);
+	public JoystickButton rampDeployButton = new JoystickButton(operatorInput, 9);
 	
 	public OI() {
-		leftRampButton.whenPressed(new LeftRampCommand());
-		rightRampButton.whenPressed(new RightRampCommand());
+		// leftRampButton.whenPressed(new LeftRampCommand());
+		// rightRampButton.whenPressed(new RightRampCommand());
+		leftRampButton.toggleWhenPressed(new LeftRampCommand());
+		rightRampButton.toggleWhenPressed(new RightRampCommand());
 		flipButton.whenPressed(new FlipCommand());
 		outtakeButton.whileHeld(new OuttakeCommand());
 		intakeButton.whileHeld(new IntakeCommand());

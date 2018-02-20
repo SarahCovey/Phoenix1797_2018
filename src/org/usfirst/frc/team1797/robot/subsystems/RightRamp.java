@@ -28,11 +28,13 @@ public class RightRamp extends Subsystem {
     	return lastActuation;
     }
     public void lift() {
+    	System.out.println("LIFT!!!!!!!!!!!");
     	liftPiston.set(DoubleSolenoid.Value.kForward);
     	lastActuation = System.currentTimeMillis();
     	isExtended = true;
     }
     public void retract() {
+    	System.out.println("***********RETRACT");
     	liftPiston.set(DoubleSolenoid.Value.kReverse);
     	lastActuation = System.currentTimeMillis();
     	isExtended = false;
