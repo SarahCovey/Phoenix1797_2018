@@ -29,7 +29,7 @@ public class RightRampCommand extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	
+    	System.out.println("RAMP DEPLOYED COMMAND: "+Robot.deployRamp.isDeployed());
     	if(Robot.deployRamp.isDeployed()) {
     		if(Robot.rightRamp.isExtended()) {
     			addSequential(new RightRampRetract());
