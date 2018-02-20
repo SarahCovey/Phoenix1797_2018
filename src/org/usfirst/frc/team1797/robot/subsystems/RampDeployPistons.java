@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1797.robot.subsystems;
 
 import org.usfirst.frc.team1797.robot.RobotMap;
+import org.usfirst.frc.team1797.robot.commands.DeployRampCommand;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -43,6 +44,7 @@ public class RampDeployPistons extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new DeployRampCommand());
     }
 }
 
