@@ -12,7 +12,7 @@ public class DriveCommand extends Command {
 	
 	public DriveCommand() {
         //Use requires() here to declare subsystem dependencies
-		requires(Robot.DRIVE_TRAIN);
+		requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -20,23 +20,16 @@ public class DriveCommand extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-//    		double z = Robot.oi.driverInput.getRawAxis(4);
-//    		double x = Robot.oi.driverInput.getRawAxis(1);
-    		
+    protected void execute() {    		
     		//gets the raw value from the controllers.
     		double x = Robot.oi.driverInput.getRawAxis(RobotMap.DRIVER_FORWARD_AXIS);
     		double z = Robot.oi.driverInput.getRawAxis(RobotMap.DRIVER_HORIZONTAL_AXIS);
     		
-//    		x *= Math.abs(x);
-//    		z *= Math.abs(z);
-    		// Robot.p.clearStickyFaults();
+    		z *= z*z*Math.abs(z)*.7;
+ 
+    		Robot.driveTrain.arcadeDrive(-x * RobotMap.DRIVETRAIN_SENSITIVITY,
+    				z * RobotMap.DRIVETRAIN_SENSITIVITY);
     		
-    		//Input to drive
-    		//System.out.println(Robot.oi.driverInput.getRawAxis(RobotMap.DRIVER_FORWARD_AXIS));
-    		Robot.DRIVE_TRAIN.arcadeDrive(-x * RobotMap.DRIVETRAIN_SENSITIVITY, z * RobotMap.DRIVETRAIN_SENSITIVITY);
-    		
-    		// System.out.println((Robot.DRIVE_TRAIN.leftEncoder.getRate() + Robot.DRIVE_TRAIN.rightEncoder.getRate())/2);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -46,7 +39,7 @@ public class DriveCommand extends Command {
     
     // Called once after isFinished returns true
     protected void end() {
-    		Robot.DRIVE_TRAIN.stopDrive();
+    		Robot.driveTrain.stopDrive();
     }
 
     // Called when another command which requires one or more of the same

@@ -1,23 +1,22 @@
 package org.usfirst.frc.team1797.robot.commands.teleoputils;
 
 import org.usfirst.frc.team1797.robot.Robot;
-import org.usfirst.frc.team1797.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class RampLift extends Command {
+public class RightRampLift extends Command {
 
-    public RampLift() {
+    public RightRampLift() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.RAMP);
+        requires(Robot.rightRamp);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-			Robot.RAMP.lift();
+			Robot.rightRamp.lift();
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
@@ -26,12 +25,12 @@ public class RampLift extends Command {
 	
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-	    return Robot.RAMP.getLastActuation() - System.currentTimeMillis() >= 1000;
+	    return System.currentTimeMillis() - Robot.rightRamp.getLastActuation() >= 1000;
 	}
 	
 	// Called once after isFinished returns true
 	protected void end() {
-			Robot.RAMP.stop();
+			Robot.rightRamp.stop();
 	}
 
     // Called when another command which requires one or more of the same
@@ -39,5 +38,4 @@ public class RampLift extends Command {
     protected void interrupted() {
     		end();
     }
-    
 }

@@ -5,7 +5,9 @@ import org.usfirst.frc.team1797.robot.subsystems.Flipper;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeMotors;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeSlidePistons;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeWheelPistons;
-import org.usfirst.frc.team1797.robot.subsystems.Ramp;
+import org.usfirst.frc.team1797.robot.subsystems.LeftRamp;
+import org.usfirst.frc.team1797.robot.subsystems.RampDeployPistons;
+import org.usfirst.frc.team1797.robot.subsystems.RightRamp;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -22,11 +24,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	public static final Drivetrain DRIVE_TRAIN = new Drivetrain();
+	public static final Drivetrain driveTrain = new Drivetrain();
 	public static final IntakeMotors intakeMotors = new IntakeMotors();
 	public static final IntakeWheelPistons intakeWheelPistons = new IntakeWheelPistons();
 	public static final IntakeSlidePistons intakeSlidePistons = new IntakeSlidePistons();
-	public static final Ramp RAMP = new Ramp();
+	public static final RampDeployPistons deployRamp = new RampDeployPistons();
+	public static final LeftRamp leftRamp = new LeftRamp();
+	public static final RightRamp rightRamp = new RightRamp();
 	public static final Flipper flipper = new Flipper();
 	public static OI oi;
 

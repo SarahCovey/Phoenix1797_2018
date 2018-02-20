@@ -49,10 +49,10 @@ public class TurnCommand extends Command {
 //    		}
     			if(turnDirection == Direction.RIGHT) {
 				//Robot.DRIVE_TRAIN.tankDrive(turnRate, -turnRate);
-    				Robot.DRIVE_TRAIN.autoTankDrive(turnRate, -turnRate);
+    				Robot.driveTrain.autoTankDrive(turnRate, -turnRate);
     			} else {
 				//Robot.DRIVE_TRAIN.tankDrive(-turnRate, turnRate);
-    				Robot.DRIVE_TRAIN.autoTankDrive(-turnRate, turnRate);
+    				Robot.driveTrain.autoTankDrive(-turnRate, turnRate);
     			}
     }
 
@@ -67,7 +67,7 @@ public class TurnCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    		Robot.DRIVE_TRAIN.tankDrive(0, 0);
+    		Robot.driveTrain.tankDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same

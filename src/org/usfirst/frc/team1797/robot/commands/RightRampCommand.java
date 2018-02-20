@@ -2,16 +2,17 @@ package org.usfirst.frc.team1797.robot.commands;
 
 import org.usfirst.frc.team1797.robot.Robot;
 import org.usfirst.frc.team1797.robot.commands.teleoputils.RampDeploy;
-import org.usfirst.frc.team1797.robot.commands.teleoputils.RampLift;
+import org.usfirst.frc.team1797.robot.commands.teleoputils.RightRampLift;
+import org.usfirst.frc.team1797.robot.commands.teleoputils.RightRampRetract;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class RampCommand extends CommandGroup {
+public class RightRampCommand extends CommandGroup {
 
-    public RampCommand() {
+    public RightRampCommand() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -29,8 +30,12 @@ public class RampCommand extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	if(Robot.RAMP.isDeployed) {
-    		addSequential(new RampLift());
+    	if(Robot.deployRamp.isDeployed()) {
+    		if(Robot.rightRamp.isExtended()) {
+    			addSequential(new RightRampRetract());
+    		} else {
+        		addSequential(new RightRampLift());
+        	}
     	} else {
     		addSequential(new RampDeploy());
     	}

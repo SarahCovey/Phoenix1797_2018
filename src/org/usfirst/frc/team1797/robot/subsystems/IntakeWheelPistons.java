@@ -15,6 +15,7 @@ public class IntakeWheelPistons extends Subsystem {
     // here. Call these from Commands.
 	
 	private DoubleSolenoid piston;
+	private long lastAct = Long.MAX_VALUE;
 	
 	public IntakeWheelPistons() {
 		piston = new DoubleSolenoid(RobotMap.getPort("intake_wheel_piston_1"), 
@@ -23,12 +24,18 @@ public class IntakeWheelPistons extends Subsystem {
 	
 	public void extend() {
 		piston.set(DoubleSolenoid.Value.kForward);
+		lastAct = System.currentTimeMillis();
 	}
 	public void retract() {
 		piston.set(DoubleSolenoid.Value.kReverse);
+		lastAct = System.currentTimeMillis();
 	}
 	public void stop() {
 		piston.set(DoubleSolenoid.Value.kOff);
+		lastAct = Long.MAX_VALUE;
+	}
+	public long getLastAct() {
+		return lastAct;
 	}
 	
     public void initDefaultCommand() {

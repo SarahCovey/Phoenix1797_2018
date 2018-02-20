@@ -7,16 +7,16 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class IntakeSlidePistonsExtend extends Command {
+public class RightRampRetract extends Command {
 
-    public IntakeSlidePistonsExtend() {
+    public RightRampRetract() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.intakeSlidePistons);
+        requires(Robot.rightRamp);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-			Robot.intakeSlidePistons.extend();
+			Robot.rightRamp.retract();
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
@@ -25,12 +25,12 @@ public class IntakeSlidePistonsExtend extends Command {
 	
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-	    return System.currentTimeMillis() - Robot.intakeSlidePistons.getLastAct() >= 1000;
+	    return System.currentTimeMillis() - Robot.rightRamp.getLastActuation() >= 1000;
 	}
 	
 	// Called once after isFinished returns true
 	protected void end() {
-			Robot.intakeSlidePistons.stop();
+			Robot.rightRamp.stop();
 	}
 
     // Called when another command which requires one or more of the same

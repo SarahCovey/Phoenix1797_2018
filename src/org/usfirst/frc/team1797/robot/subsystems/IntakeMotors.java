@@ -41,10 +41,6 @@ public class IntakeMotors extends Subsystem {
 		motor2.set(0);
 	}
 	
-	public boolean hasBox() {
-		return true;
-	}
-	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

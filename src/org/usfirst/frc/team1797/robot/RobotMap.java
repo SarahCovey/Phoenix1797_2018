@@ -36,12 +36,6 @@ public class RobotMap {
 	// Physical multiplier of motors
 	public static final double DRIVETRAIN_SENSITIVITY = 1;
 	public static final double INTAKE_MOTOR_SPEED = 1;
-
-	// Time before pistons stop extending/retracting
-	public static final double FLIPPER_PISTON_TIME = 1000; // in milliseconds
-
-	// Time before ramp stops extending/retracting
-	public static final double RAMP_PISTON_TIME = 1000; // in milliseconds
 	
 	// Distance between left and right wheels
 	public static final double ROBOT_BASE_WIDTH = 0.63;
@@ -86,15 +80,17 @@ public class RobotMap {
 		ROBOT_HARDWARE_PORTS.put("intake_slide_piston_2", 3);
 
 		// Ramp Pistons
-		ROBOT_HARDWARE_PORTS.put("deploy_piston_1", 4);
-		ROBOT_HARDWARE_PORTS.put("deploy_piston_2", 5);
-		ROBOT_HARDWARE_PORTS.put("lift_piston_1", 6);
-		ROBOT_HARDWARE_PORTS.put("lift_piston_2", 7);
+		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_1", 4);
+		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_2", 5);
+		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_2", 6);
+		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_2", 7);
+
 		
 // LIMIT SWITCHES
 		ROBOT_HARDWARE_PORTS.put("flipper_switch_back", 0);
 		ROBOT_HARDWARE_PORTS.put("flipper_switch_front", 1);
-		
+
+
 // ENCODERS:
 		ROBOT_HARDWARE_PORTS.put("left_encoder_1", 0);
 		ROBOT_HARDWARE_PORTS.put("left_encoder_2", 1);
