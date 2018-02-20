@@ -1,7 +1,9 @@
 package org.usfirst.frc.team1797.robot;
 
+import org.usfirst.frc.team1797.robot.commands.teleoputils.DeployIntake;
 import org.usfirst.frc.team1797.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1797.robot.subsystems.Flipper;
+import org.usfirst.frc.team1797.robot.subsystems.IntakeDeployPistons;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeMotors;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeWheelPistons;
 import org.usfirst.frc.team1797.robot.subsystems.LeftRamp;
@@ -26,6 +28,7 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain driveTrain = new Drivetrain();
 	public static final IntakeMotors intakeMotors = new IntakeMotors();
 	public static final IntakeWheelPistons intakeWheelPistons = new IntakeWheelPistons();
+	public static final IntakeDeployPistons intakeDeployPistons = new IntakeDeployPistons();
 	public static final RampDeployPistons deployRamp = new RampDeployPistons();
 	public static final LeftRamp leftRamp = new LeftRamp();
 	public static final RightRamp rightRamp = new RightRamp();
@@ -103,6 +106,7 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		Scheduler.getInstance().add(new DeployIntake());
 	}
 
 	/**

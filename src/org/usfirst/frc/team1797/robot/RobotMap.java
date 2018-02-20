@@ -79,8 +79,8 @@ public class RobotMap {
 //		ROBOT_HARDWARE_PORTS.put("intake_slide_piston_2", 3);
 		
 		// intake deploy pistons
-		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_1", 0);
-		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_2", 1);
+		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_1", 0); // pcm 1
+		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_2", 1); // pcm 1
 
 		// Ramp Pistons
 		ROBOT_HARDWARE_PORTS.put("left_ramp_1", 6);
