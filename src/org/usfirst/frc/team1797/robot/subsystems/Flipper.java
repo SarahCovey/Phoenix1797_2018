@@ -26,7 +26,7 @@ public class Flipper extends Subsystem {
 		front = new DigitalInput(RobotMap.getPort("flipper_switch_front"));
 	}
 	public void set(double x) {
-		motor.set(x);
+		motor.set(-x);
 	}
 	public boolean isBack() {
 		return back.get();

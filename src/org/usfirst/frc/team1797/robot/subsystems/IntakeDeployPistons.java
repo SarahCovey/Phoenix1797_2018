@@ -13,7 +13,7 @@ public class IntakeDeployPistons extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	private DoubleSolenoid piston = new DoubleSolenoid(1, RobotMap.getPort("intake_deploy_piston_1"), 
+	private DoubleSolenoid piston = new DoubleSolenoid(RobotMap.getPort("intake_deploy_piston_1"), 
 			RobotMap.getPort("intake_deploy_piston_2"));
 	long lastAct = Long.MAX_VALUE;
 	

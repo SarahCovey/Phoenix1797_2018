@@ -13,7 +13,7 @@ public class RampDeployPistons extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	private Solenoid deployPiston = new Solenoid(RobotMap.getPort("ramp_deploy_piston"));
+	private Solenoid deployPiston = new Solenoid(1, RobotMap.getPort("ramp_deploy_piston"));
 	private long lastAct = Long.MAX_VALUE;
 	private boolean isDeployed = false;
 	

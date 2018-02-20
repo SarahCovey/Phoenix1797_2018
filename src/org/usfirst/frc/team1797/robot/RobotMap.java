@@ -70,39 +70,31 @@ public class RobotMap {
 		
 		
 // PISTONS:
-		// Intake Wheel Pistons
-		ROBOT_HARDWARE_PORTS.put("intake_wheel_piston_1", 2);
-		ROBOT_HARDWARE_PORTS.put("intake_wheel_piston_2", 3);
-		
-		// Intake Slide Pistons
-//		ROBOT_HARDWARE_PORTS.put("intake_slide_piston_1", 2);
-//		ROBOT_HARDWARE_PORTS.put("intake_slide_piston_2", 3);
-		
 		// intake deploy pistons
-		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_1", 0); // pcm 1
-		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_2", 1); // pcm 1
+		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_1", 0);
+		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_2", 1);
 
 		// Ramp Pistons
-		ROBOT_HARDWARE_PORTS.put("left_ramp_1", 6);
-		ROBOT_HARDWARE_PORTS.put("left_ramp_2", 7);
+		ROBOT_HARDWARE_PORTS.put("left_ramp_1", 4);
+		ROBOT_HARDWARE_PORTS.put("left_ramp_2", 5);
 		
-		ROBOT_HARDWARE_PORTS.put("right_ramp_1", 4);
-		ROBOT_HARDWARE_PORTS.put("right_ramp_2", 5);
+		ROBOT_HARDWARE_PORTS.put("right_ramp_1", 6);
+		ROBOT_HARDWARE_PORTS.put("right_ramp_2", 7);
 		
-		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston", 0);
-
-		
-// LIMIT SWITCHES
-		ROBOT_HARDWARE_PORTS.put("flipper_switch_back", 0);
-		ROBOT_HARDWARE_PORTS.put("flipper_switch_front", 1);
+		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston", 3);
 
 
-// ENCODERS:
+// SENSORS:
+		// Encoders
 		ROBOT_HARDWARE_PORTS.put("left_encoder_1", 0);
 		ROBOT_HARDWARE_PORTS.put("left_encoder_2", 1);
 		ROBOT_HARDWARE_PORTS.put("right_encoder_1", 2);
 		ROBOT_HARDWARE_PORTS.put("right_encoder_2", 3);
 		
+		// LIMIT SWITCHES
+		ROBOT_HARDWARE_PORTS.put("flipper_switch_back", 4);
+		ROBOT_HARDWARE_PORTS.put("flipper_switch_front", 5);
+
 	}
 
 	public static int getPort(String id) {
