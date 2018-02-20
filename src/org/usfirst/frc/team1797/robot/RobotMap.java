@@ -18,7 +18,6 @@ public class RobotMap {
 
 	// delay method
 	private static final double DELAY_SECONDS = 0.0;
-	private static boolean x = false;
 
 	public static void delay() {
 		long startTime = System.currentTimeMillis();
@@ -72,18 +71,24 @@ public class RobotMap {
 		
 // PISTONS:
 		// Intake Wheel Pistons
-		ROBOT_HARDWARE_PORTS.put("intake_wheel_piston_1", 0);
-		ROBOT_HARDWARE_PORTS.put("intake_wheel_piston_2", 1);
+		ROBOT_HARDWARE_PORTS.put("intake_wheel_piston_1", 2);
+		ROBOT_HARDWARE_PORTS.put("intake_wheel_piston_2", 3);
 		
 		// Intake Slide Pistons
-		ROBOT_HARDWARE_PORTS.put("intake_slide_piston_1", 2);
-		ROBOT_HARDWARE_PORTS.put("intake_slide_piston_2", 3);
+//		ROBOT_HARDWARE_PORTS.put("intake_slide_piston_1", 2);
+//		ROBOT_HARDWARE_PORTS.put("intake_slide_piston_2", 3);
+		
+		// intake deploy pistons
+		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_1", 0);
+		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_2", 1);
 
 		// Ramp Pistons
-		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_1", 4);
-		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_2", 5);
-		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_2", 6);
+		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_1", 6);
 		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_2", 7);
+		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_2", 4);
+		ROBOT_HARDWARE_PORTS.put("left_ramp_piston_2", 5);
+		
+		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston", 0);
 
 		
 // LIMIT SWITCHES
