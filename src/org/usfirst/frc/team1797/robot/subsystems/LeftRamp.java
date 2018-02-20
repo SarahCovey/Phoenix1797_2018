@@ -20,8 +20,8 @@ public class LeftRamp extends Subsystem {
 	private boolean isExtended = false;
 		
 	public LeftRamp() {
-		liftPiston = new DoubleSolenoid(RobotMap.getPort("left_ramp_piston_1"),
-				RobotMap.getPort("left_ramp_piston_2"));
+		liftPiston = new DoubleSolenoid(RobotMap.getPort("left_ramp_1"),
+				RobotMap.getPort("left_ramp_2"));
 	}
 	
     public long getLastActuation() {
