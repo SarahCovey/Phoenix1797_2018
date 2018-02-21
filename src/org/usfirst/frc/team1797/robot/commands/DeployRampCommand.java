@@ -16,6 +16,7 @@ public class DeployRampCommand extends Command {
     public DeployRampCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.deployRamp);
     }
 
     // Called just before this Command runs the first time
@@ -26,6 +27,7 @@ public class DeployRampCommand extends Command {
     protected void execute() {
     	if(lastAct==Long.MAX_VALUE && Robot.oi.operatorInput.getPOV()==180) {
     		lastAct = System.currentTimeMillis();
+    		Robot.deployRamp.deploy();
     	}
     }
 

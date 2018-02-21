@@ -53,8 +53,6 @@ public class OI {
 	public JoystickButton rampDeployButton = new JoystickButton(operatorInput, 9);
 	
 	public OI() {
-		// leftRampButton.whenPressed(new LeftRampCommand());
-		// rightRampButton.whenPressed(new RightRampCommand());
 		leftRampButton.toggleWhenPressed(new LeftRampCommand());
 		rightRampButton.toggleWhenPressed(new RightRampCommand());
 		flipButton.whenPressed(new FlipCommand());
