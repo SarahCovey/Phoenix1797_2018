@@ -1,6 +1,5 @@
 package org.usfirst.frc.team1797.robot;
 
-import org.usfirst.frc.team1797.robot.commands.teleoputils.DeployIntake;
 import org.usfirst.frc.team1797.robot.commands.teleoputils.LeftRampRetract;
 import org.usfirst.frc.team1797.robot.commands.teleoputils.RetractIntake;
 import org.usfirst.frc.team1797.robot.commands.teleoputils.RightRampRetract;
@@ -17,7 +16,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
