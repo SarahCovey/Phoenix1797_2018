@@ -52,6 +52,7 @@ public class Robot extends IterativeRobot {
 		autonomousChooser = new SendableChooser();
 		
 		// Reset the AHRS gyro angles and displacement.
+		Robot.driveTrain.resetEncoders();
 		RobotMap.gyro.reset();
 		RobotMap.gyro.resetDisplacement();
 	}
