@@ -27,7 +27,7 @@ public class RobotMap {
 
 	// Robot controls
 	public static final int DRIVER_FORWARD_AXIS = 1;
-	public static final int DRIVER_HORIZONTAL_AXIS = 2;
+	public static final int DRIVER_HORIZONTAL_AXIS = 4;
 
 	public static final int DRIVER_CONTROLLER_PORT = 0;
 	public static final int OPERATOR_CONTROLLER_PORT = 1;
