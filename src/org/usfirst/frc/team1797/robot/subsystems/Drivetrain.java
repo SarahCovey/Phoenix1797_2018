@@ -35,7 +35,7 @@ public class Drivetrain extends Subsystem {
 	
 	private final DifferentialDrive DifferentialDrive = new DifferentialDrive(left, right);
 	
-	private final double Kp = 0.03;
+	private final double kp = 0.025;
 	
 	@SuppressWarnings("deprecation")
 	// public final RobotDrive robotDrive = new RobotDrive(left, right);
@@ -61,10 +61,6 @@ public class Drivetrain extends Subsystem {
 		rightEncoder.setSamplesToAverage(7);
 		leftEncoder.reset();
 		
-//		left1.setSafetyEnabled(false);
-//		left2.setSafetyEnabled(false);
-//		right1.setSafetyEnabled(false);
-//		right2.setSafetyEnabled(false);
 	}
 	
 	public void resetEncoders() {
@@ -76,12 +72,19 @@ public class Drivetrain extends Subsystem {
 		DifferentialDrive.arcadeDrive(x, z);
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void autoTankDrive(double leftSpeed, double rightSpeed) {
 		// tried with Kp-gyro.angle
-		DifferentialDrive.tankDrive(leftSpeed-(Kp*leftSpeed), 
-								  rightSpeed-(Kp*rightSpeed));
+		DifferentialDrive.tankDrive(leftSpeed-(kp*leftSpeed), 
+								  rightSpeed-(kp*rightSpeed));
 		
+	}
+	
+	public void errorCorrectionDrive(double moveValue) {
+		double left = leftEncoder.getRate();
+		double right = rightEncoder.getRate();
+		double error = right - left;
+		double result = kp * error;
+		DifferentialDrive.tankDrive(moveValue + result, moveValue - result);
 	}
 	
 //	@SuppressWarnings("deprecation")
