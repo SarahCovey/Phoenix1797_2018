@@ -14,10 +14,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoDeliverBoxLToL extends CommandGroup {
     public AutoDeliverBoxLToL() {
     		// Move forward ~168 units.
-    		addSequential(new MoveStraight(Direction.BACKWARD, 0.5, 168));
+    		addSequential(new MoveStraight(0.7, 168));
     		// Turn left at an angle of 90 degrees.
-    		addSequential(new TurnCommand(Direction.LEFT, 0.5, 90));
+    		addSequential(new TurnCommand(Direction.RIGHT, 0.5, 90));
     		// Move backwards ~85.25 (also try 15.625) units, to hit the fence and back into the wall.
-    		addSequential(new MoveStraight(Direction.BACKWARD, 0.5, 18.625));
+    		addSequential(new MoveStraight(0.7, 18.625));
     }
 }

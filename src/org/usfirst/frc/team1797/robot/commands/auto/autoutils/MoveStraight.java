@@ -1,77 +1,42 @@
 package org.usfirst.frc.team1797.robot.commands.auto.autoutils;
 
 import org.usfirst.frc.team1797.robot.Robot;
-import org.usfirst.frc.team1797.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * @version 2.0, changes by techtide, to allow PID and straight driving and
+ *          changing direction every time it's run.
  */
+
 public class MoveStraight extends Command {
-
-	private Direction direction;
 	private double driveSpeed;
-	private double driveSpeedL, driveSpeedR;
 	private double maxDistance;
-	
-    public MoveStraight(Direction d, double speed, double distance) {
-    		this.direction = d;
-    		this.driveSpeed = speed;
-    		this.maxDistance = distance;
-    		requires(Robot.driveTrain);
-    }
-    
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    		System.out.println();
-    		System.out.println("[INFO] Initializing moving command!");
-    		
-    		//Resetting encoders to allow precise measurements
-    		Robot.driveTrain.resetEncoders();
-    		
-    		//Inverts the drive speed to allow the robot to go backwards
-    		driveSpeed *= direction == Direction.BACKWARD ? -1 : 1;
-    		driveSpeedL = driveSpeed;
-    		driveSpeedR = -driveSpeed;
-    }
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    		//Updates the drivetrain to move
-    	
-    		// System.out.println("Distance: " + Robot.DRIVE_TRAIN.getAverageEncoderDistance());
-//    		System.out.println("Left: "+Robot.DRIVE_TRAIN.leftEncoder.getDistance()+"\t"
-//    				+ "Right: "+Robot.DRIVE_TRAIN.rightEncoder.getDistance());
-//    		
-    		// System.out.println("∠: " + RobotMap.gyro.getAngle() + "˚");
-    		// Robot.DRIVE_TRAIN.arcadeDrive(-driveSpeed, 0);
-    		System.out.println(driveSpeedL+"\t"+driveSpeedR);
-    		Robot.driveTrain.tankDrive(driveSpeedL, driveSpeedR);
-//    		if(Robot.DRIVE_TRAIN.leftEncoder.getDistance()<Robot.DRIVE_TRAIN.rightEncoder.getDistance()) {
-//    			driveSpeedL += .02;
-//    		} else {
-//    			driveSpeedR -= .02;
-//    		}
-//    		driveSpeedL -= .01;
-//    		driveSpeedR += .01;
-    }
+	public MoveStraight(double speed, double distance) {
+		this.driveSpeed = speed;
+		this.maxDistance = distance;
+		requires(Robot.driveTrain);
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    		//checks to see if the robot has passed the difference
-        return Robot.driveTrain.getAverageEncoderDistance() > maxDistance;
-    }
+	protected void initialize() {
+		Robot.driveTrain.resetEncoders();
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    		//stops the motors.
-    		Robot.driveTrain.arcadeDrive(0, 0);
-    }
+	protected void execute() {
+		// Calls the error correction drive (uses PID) to correct driving straight.
+		Robot.driveTrain.errorCorrectionDrive(-driveSpeed);
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    		end();
-    }
+	protected boolean isFinished() {
+		return Robot.driveTrain.getAverageEncoderDistance() >= maxDistance;
+	}
+
+	protected void end() {
+		Robot.driveTrain.arcadeDrive(0, 0);
+	}
+
+	protected void interrupted() {
+		end();
+	}
 }
