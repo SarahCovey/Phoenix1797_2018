@@ -9,16 +9,13 @@ import org.usfirst.frc.team1797.robot.commands.auto.autoutils.*;
  */
 
 public class AutoDeliverBoxRToL extends CommandGroup {
-    public AutoDeliverBoxRToL() {
-    		// Move straight ~209 units.
-     		addSequential(new MoveStraight(0.7, 209));
-    		// Turn approximately 90 degrees left.
-    		addSequential(new TurnCommand(Direction.LEFT, 0.5, 90));
-    		// Move forward  ~148 units.
-    		addSequential(new MoveStraight(0.7, 148));
-//    		// Turn approximately 90 degrees to the left.
-    		addSequential(new TurnCommand(Direction.LEFT, 0.5, 90));
-//    		// Move forward ~41 units.
-    		addSequential(new MoveStraight(0.7, 41));
-    }
+	public AutoDeliverBoxRToL() {
+		addSequential(new MoveStraight(0.5, 228.735));
+		addSequential(new TurnCommand(Direction.LEFT, 0.5, 90));
+		addSequential(new MoveStraight(0.5, 252));
+		addSequential(new TurnCommand(Direction.LEFT, 0.5, 90));
+		addSequential(new MoveStraight(0.5, 56.735));
+		addSequential(new TurnCommand(Direction.LEFT, 0.5, 90));
+		addSequential(new MoveStraight(0.5, 99.4));
+	}
 }
