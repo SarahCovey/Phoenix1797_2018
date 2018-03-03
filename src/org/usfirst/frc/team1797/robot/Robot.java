@@ -37,18 +37,18 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	@SuppressWarnings("deprecation")
-	
+
 	SendableChooser autonomousChooser;
-	
+
 	/**
-	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
+	 * This function is run when the robot is first started up and should be used
+	 * for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
 		oi = new OI();
 		autonomousChooser = new SendableChooser();
-		
+
 		// Reset the AHRS gyro angles and displacement.
 		Robot.driveTrain.resetEncoders();
 		RobotMap.gyro.reset();
@@ -56,13 +56,13 @@ public class Robot extends IterativeRobot {
 	}
 
 	/**
-	 * This function is called once each time the robot enters Disabled mode.
-	 * You can use it to reset any subsystem information you want to clear when
-	 * the robot is disabled.
+	 * This function is called once each time the robot enters Disabled mode. You
+	 * can use it to reset any subsystem information you want to clear when the
+	 * robot is disabled.
 	 */
 	@Override
 	public void disabledInit() {
-		
+
 	}
 
 	@Override
@@ -72,14 +72,14 @@ public class Robot extends IterativeRobot {
 
 	/**
 	 * This autonomous (along with the chooser code above) shows how to select
-	 * between different autonomous modes using the dashboard. The sendable
-	 * chooser code works with the Java SmartDashboard. If you prefer the
-	 * LabVIEW Dashboard, remove all of the chooser code and uncomment the
-	 * getString code to get the auto name from the text box below the Gyro
+	 * between different autonomous modes using the dashboard. The sendable chooser
+	 * code works with the Java SmartDashboard. If you prefer the LabVIEW Dashboard,
+	 * remove all of the chooser code and uncomment the getString code to get the
+	 * auto name from the text box below the Gyro
 	 *
 	 * You can add additional auto modes by adding additional commands to the
-	 * chooser code above (like the commented example) or additional comparisons
-	 * to the switch structure below with additional strings & commands.
+	 * chooser code above (like the commented example) or additional comparisons to
+	 * the switch structure below with additional strings & commands.
 	 */
 	@Override
 	public void autonomousInit() {
@@ -97,8 +97,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		//System.out.println("Left Distance: " + Robot.DRIVE_TRAIN.leftEncoder.getDistance()
-		//	+ "Right Distance: " + Robot.DRIVE_TRAIN.rightEncoder.getDistance());
+		// System.out.println("Left Distance: " +
+		// Robot.DRIVE_TRAIN.leftEncoder.getDistance()
+		// + "Right Distance: " + Robot.DRIVE_TRAIN.rightEncoder.getDistance());
 	}
 
 	@Override
@@ -117,7 +118,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		
+
 	}
 
 	/**

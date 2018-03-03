@@ -19,9 +19,9 @@ public class RobotMap {
 
 	public static void delay() {
 		long startTime = System.currentTimeMillis();
-		while (DELAY_SECONDS * 1000 + startTime >= System.currentTimeMillis()) {}
+		while (DELAY_SECONDS * 1000 + startTime >= System.currentTimeMillis()) {
+		}
 	}
-
 
 	// Robot controls
 	public static final int DRIVER_FORWARD_AXIS = 1;
@@ -33,41 +33,41 @@ public class RobotMap {
 	// Physical multiplier of motors
 	public static final double DRIVETRAIN_SENSITIVITY = 1;
 	public static final double INTAKE_MOTOR_SPEED = 1;
-	
+
 	// Distance between left and right wheels
 	public static final double ROBOT_BASE_WIDTH = 0.63;
 	public static final double ROBOT_WHEEL_WIDTH = 0.15;
 	private static final double ROBOT_WHEEL_CIRCUMFERENCE = Math.PI * 6;
 	private static final int ROBOT_ENCODER_PULSES = 256;
 	public static final double ROBOT_ENCODER_DPP = ROBOT_WHEEL_CIRCUMFERENCE / ROBOT_ENCODER_PULSES;
-	
+
 	// Gyro
 	// Test aonboard, all the different ports
-	// I need to switch this to I2C. This was hell to figure out so contact Arman if u want to change this.
+	// I need to switch this to I2C. This was hell to figure out so contact Arman if
+	// u want to change this.
 	// AHRS docs on kuwawi labs site or something
-	 public static final AHRS gyro = new AHRS(I2C.Port.kMXP); 
-	 
+	public static final AHRS gyro = new AHRS(I2C.Port.kMXP);
+
 	// Add hardware ports here with an id and port number.
 	// Ex. ROBOT_HARDWARE_PORTS.put(<port id>, port number);
 	private static HashMap<String, Integer> ROBOT_HARDWARE_PORTS = new HashMap<>();
 	static {
-		
-// MOTORS:
+
+		// MOTORS:
 		// Drivetrain Motors
 		ROBOT_HARDWARE_PORTS.put("left_motor_1", 0);
 		ROBOT_HARDWARE_PORTS.put("left_motor_2", 1);
 		ROBOT_HARDWARE_PORTS.put("right_motor_1", 2);
 		ROBOT_HARDWARE_PORTS.put("right_motor_2", 3);
-		
+
 		// Intake Motors
 		ROBOT_HARDWARE_PORTS.put("intake_motor_1", 4);
 		ROBOT_HARDWARE_PORTS.put("intake_motor_2", 5);
-		
+
 		// Flipper Motor
 		ROBOT_HARDWARE_PORTS.put("flipper_motor", 6);
-		
-		
-// PISTONS:
+
+		// PISTONS:
 		// intake deploy pistons
 		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_1", 4);// 1
 		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_2", 5);// 0
@@ -75,21 +75,20 @@ public class RobotMap {
 		// Ramp Pistons
 		ROBOT_HARDWARE_PORTS.put("left_ramp_1", 0);// 4
 		ROBOT_HARDWARE_PORTS.put("left_ramp_2", 1);// 5
-		
+
 		ROBOT_HARDWARE_PORTS.put("right_ramp_1", 6);
 		ROBOT_HARDWARE_PORTS.put("right_ramp_2", 7);
-		
+
 		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston_1", 2);
 		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston_2", 3);
 
-
-// SENSORS:
+		// SENSORS:
 		// Encoders
 		ROBOT_HARDWARE_PORTS.put("left_encoder_1", 0);
 		ROBOT_HARDWARE_PORTS.put("left_encoder_2", 1);
 		ROBOT_HARDWARE_PORTS.put("right_encoder_1", 2);
 		ROBOT_HARDWARE_PORTS.put("right_encoder_2", 3);
-		
+
 		// LIMIT SWITCHES
 		ROBOT_HARDWARE_PORTS.put("flipper_switch_back", 4);
 		ROBOT_HARDWARE_PORTS.put("flipper_switch_front", 5);

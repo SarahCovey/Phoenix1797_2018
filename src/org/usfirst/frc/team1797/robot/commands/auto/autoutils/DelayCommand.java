@@ -6,34 +6,36 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DelayCommand extends Command {
+
 	private int milisec;
 	private long lastAct;
-    public DelayCommand(int milisec) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	this.milisec = milisec;
-    }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    	lastAct = System.currentTimeMillis();
-    }
+	public DelayCommand(int milisec) {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+		this.milisec = milisec;
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+		lastAct = System.currentTimeMillis();
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return System.currentTimeMillis() - lastAct >= milisec;
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return System.currentTimeMillis() - lastAct >= milisec;
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+	}
 }
