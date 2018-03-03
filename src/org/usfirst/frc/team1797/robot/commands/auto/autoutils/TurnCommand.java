@@ -20,7 +20,7 @@ public class TurnCommand extends Command {
 	private double targetAngle;
 
 	public TurnCommand(Direction d, double turnRate, double turnAngle) {
-		requires(Robot.driveTrain);
+		requires(Robot.DRIVETRAIN);
 		this.turnDirection = d;
 		this.turnRate = turnRate;
 		this.turnAngle = (d == Direction.LEFT) ? -turnAngle + 15 : turnAngle - 15;
@@ -41,10 +41,10 @@ public class TurnCommand extends Command {
 		System.out.println("Command: " + gyro.getAngle());
 
 		if (turnDirection == Direction.RIGHT) {
-			Robot.driveTrain.tankDrive(turnRate, -turnRate);
+			Robot.DRIVETRAIN.tankDrive(turnRate, -turnRate);
 			// Robot.DRIVE_TRAIN.errorConnectionTurn(turnRate, -turnRate);
 		} else {
-			Robot.driveTrain.tankDrive(-turnRate, turnRate);
+			Robot.DRIVETRAIN.tankDrive(-turnRate, turnRate);
 			// Robot.DRIVE_TRAIN.errorConnectionTurn(-turnRate, turnRate);
 		}
 	}
@@ -60,7 +60,7 @@ public class TurnCommand extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.driveTrain.tankDrive(0, 0);
+		Robot.DRIVETRAIN.tankDrive(0, 0);
 	}
 
 	// Called when another command which requires one or more of the same

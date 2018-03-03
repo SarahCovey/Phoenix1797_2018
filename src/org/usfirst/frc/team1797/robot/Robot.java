@@ -25,13 +25,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	public static final Drivetrain driveTrain = new Drivetrain();
-	public static final IntakeMotors intakeMotors = new IntakeMotors();
-	public static final IntakeDeployPistons intakeDeployPistons = new IntakeDeployPistons();
-	public static final RampDeployPistons deployRamp = new RampDeployPistons();
-	public static final LeftRamp leftRamp = new LeftRamp();
-	public static final RightRamp rightRamp = new RightRamp();
-	public static final Flipper flipper = new Flipper();
+	public static final Drivetrain DRIVETRAIN = new Drivetrain();
+	public static final IntakeMotors INTAKE_MOTORS = new IntakeMotors();
+	public static final IntakeDeployPistons INTAKE_DEPLOY_PISTONS = new IntakeDeployPistons();
+	public static final RampDeployPistons DEPLOY_RAMP = new RampDeployPistons();
+	public static final LeftRamp LEFT_RAMP = new LeftRamp();
+	public static final RightRamp RIGHT_RAMP = new RightRamp();
+	public static final Flipper FLIPPER = new Flipper();
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -50,7 +50,7 @@ public class Robot extends IterativeRobot {
 		autonomousChooser = new SendableChooser();
 
 		// Reset the AHRS gyro angles and displacement.
-		Robot.driveTrain.resetEncoders();
+		Robot.DRIVETRAIN.resetEncoders();
 		RobotMap.gyro.reset();
 		RobotMap.gyro.resetDisplacement();
 	}

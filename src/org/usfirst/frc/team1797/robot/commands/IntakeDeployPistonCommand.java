@@ -14,7 +14,7 @@ public class IntakeDeployPistonCommand extends Command {
     public IntakeDeployPistonCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.intakeDeployPistons);
+    	requires(Robot.INTAKE_DEPLOY_PISTONS);
     }
 
     // Called just before this Command runs the first time
@@ -25,10 +25,10 @@ public class IntakeDeployPistonCommand extends Command {
     protected void execute() {
     	if (Robot.oi.operatorInput.getPOV() == 180) {
 			lastAct = System.currentTimeMillis();
-			Robot.intakeDeployPistons.extend();
+			Robot.INTAKE_DEPLOY_PISTONS.extend();
 		} else if (Robot.oi.operatorInput.getPOV() == 0) {
 			lastAct = System.currentTimeMillis();
-			Robot.intakeDeployPistons.retract();
+			Robot.INTAKE_DEPLOY_PISTONS.retract();
 		}
     }
 
@@ -39,7 +39,7 @@ public class IntakeDeployPistonCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.intakeDeployPistons.stop();
+    	Robot.INTAKE_DEPLOY_PISTONS.stop();
     }
 
     // Called when another command which requires one or more of the same

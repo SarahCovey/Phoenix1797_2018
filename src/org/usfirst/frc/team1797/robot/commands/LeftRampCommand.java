@@ -12,12 +12,12 @@ public class LeftRampCommand extends Command {
 	public LeftRampCommand() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(Robot.leftRamp);
+		requires(Robot.LEFT_RAMP);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.leftRamp.lift();
+		Robot.LEFT_RAMP.lift();
 		System.out.println("leftRampInitializing");
 	}
 
@@ -32,7 +32,7 @@ public class LeftRampCommand extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.leftRamp.retract();
+		Robot.LEFT_RAMP.retract();
 		System.out.println("leftRampEnding");
 	}
 
