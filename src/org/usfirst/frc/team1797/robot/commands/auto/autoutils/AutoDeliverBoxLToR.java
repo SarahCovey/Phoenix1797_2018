@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1797.robot.commands.auto.autoutils;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.usfirst.frc.team1797.robot.commands.auto.autoutils.*;
 
 /**
  * @author techtide

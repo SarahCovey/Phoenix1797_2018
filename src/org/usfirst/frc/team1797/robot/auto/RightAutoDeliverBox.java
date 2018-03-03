@@ -2,6 +2,7 @@ package org.usfirst.frc.team1797.robot.auto;
 
 import org.usfirst.frc.team1797.robot.commands.FlipCommand;
 import org.usfirst.frc.team1797.robot.commands.auto.autoutils.AutoDeliverBoxRToR;
+import org.usfirst.frc.team1797.robot.commands.auto.autoutils.DelayCommand;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -29,6 +30,7 @@ public class RightAutoDeliverBox extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	char ch = DriverStation.getInstance().getGameSpecificMessage().toLowerCase().charAt(0);
+    	addSequential(new DelayCommand(0));
     	if(ch == 'l') {
     		addSequential(new AutoDeliverBoxRToR());
     	} else {
