@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1797.robot.subsystems;
 
 import org.usfirst.frc.team1797.robot.RobotMap;
+import org.usfirst.frc.team1797.robot.commands.IntakeDeployPistonCommand;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -15,7 +16,7 @@ public class IntakeDeployPistons extends Subsystem {
 
 	private DoubleSolenoid piston = new DoubleSolenoid(RobotMap.getPort("intake_deploy_piston_1"),
 			RobotMap.getPort("intake_deploy_piston_2"));
-	long lastAct = Long.MAX_VALUE;
+	private long lastAct = Long.MAX_VALUE;
 
 	public void extend() {
 		piston.set(DoubleSolenoid.Value.kForward);
@@ -39,5 +40,6 @@ public class IntakeDeployPistons extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new IntakeDeployPistonCommand());
 	}
 }
