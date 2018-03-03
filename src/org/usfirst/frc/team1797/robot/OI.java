@@ -41,17 +41,17 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-	
+
 	public Joystick driverInput = new Joystick(RobotMap.DRIVER_CONTROLLER_PORT);
 	public Joystick operatorInput = new Joystick(RobotMap.OPERATOR_CONTROLLER_PORT);
-	
+
 	public JoystickButton intakeButton = new JoystickButton(operatorInput, 1);
 	public JoystickButton outtakeButton = new JoystickButton(operatorInput, 4);
 	public JoystickButton flipButton = new JoystickButton(operatorInput, 6);
 	public JoystickButton leftRampButton = new JoystickButton(operatorInput, 7);
 	public JoystickButton rightRampButton = new JoystickButton(operatorInput, 8);
 	public JoystickButton rampDeployButton = new JoystickButton(operatorInput, 9);
-	
+
 	public OI() {
 		leftRampButton.toggleWhenPressed(new LeftRampCommand());
 		rightRampButton.toggleWhenPressed(new RightRampCommand());

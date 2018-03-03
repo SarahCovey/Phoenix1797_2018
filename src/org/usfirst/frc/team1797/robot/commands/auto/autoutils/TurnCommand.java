@@ -15,58 +15,57 @@ public class TurnCommand extends Command {
 	private Direction turnDirection;
 	private double turnRate;
 	private double turnAngle;
-	
+
 	private AHRS gyro;
 	private double targetAngle;
-	
-	
-    public TurnCommand(Direction d, double turnRate, double turnAngle) {
-    	requires(Robot.driveTrain);
-    	this.turnDirection = d;
-        this.turnRate = turnRate;
-        this.turnAngle = (d == Direction.LEFT ) ? -turnAngle+15 : turnAngle-15;
-        this.targetAngle = this.turnAngle;
-    }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    	//System.out.println("Init turn command.");
-    	this.gyro = RobotMap.gyro;
-        this.gyro.reset();
-        this.gyro.resetDisplacement();
-    	// System.out.println("Target Angle: " + targetAngle);
-    }
+	public TurnCommand(Direction d, double turnRate, double turnAngle) {
+		requires(Robot.driveTrain);
+		this.turnDirection = d;
+		this.turnRate = turnRate;
+		this.turnAngle = (d == Direction.LEFT) ? -turnAngle + 15 : turnAngle - 15;
+		this.targetAngle = this.turnAngle;
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    		System.out.println("Command: " + gyro.getAngle());
-    			
-    		if(turnDirection == Direction.RIGHT) {
-    			Robot.driveTrain.tankDrive(turnRate, -turnRate);
-//    			Robot.DRIVE_TRAIN.errorConnectionTurn(turnRate, -turnRate);
-    		} else {
-    			Robot.driveTrain.tankDrive(-turnRate, turnRate);
-//     			Robot.DRIVE_TRAIN.errorConnectionTurn(-turnRate, turnRate);
-    		}
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+		// System.out.println("Init turn command.");
+		this.gyro = RobotMap.gyro;
+		this.gyro.reset();
+		this.gyro.resetDisplacement();
+		// System.out.println("Target Angle: " + targetAngle);
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        if(turnDirection == Direction.RIGHT) {
-        		return gyro.getAngle() >= targetAngle;
-        } else {
-        		return gyro.getAngle() <= targetAngle;
-        }
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		System.out.println("Command: " + gyro.getAngle());
 
-    // Called once after isFinished returns true
-    protected void end() {
-    		Robot.driveTrain.tankDrive(0, 0);
-    }
+		if (turnDirection == Direction.RIGHT) {
+			Robot.driveTrain.tankDrive(turnRate, -turnRate);
+			// Robot.DRIVE_TRAIN.errorConnectionTurn(turnRate, -turnRate);
+		} else {
+			Robot.driveTrain.tankDrive(-turnRate, turnRate);
+			// Robot.DRIVE_TRAIN.errorConnectionTurn(-turnRate, turnRate);
+		}
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    		end();
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		if (turnDirection == Direction.RIGHT) {
+			return gyro.getAngle() >= targetAngle;
+		} else {
+			return gyro.getAngle() <= targetAngle;
+		}
+	}
+
+	// Called once after isFinished returns true
+	protected void end() {
+		Robot.driveTrain.tankDrive(0, 0);
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		end();
+	}
 }

@@ -5,7 +5,8 @@ import org.usfirst.frc.team1797.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * @version 2.0, changes by techtide, to allow PID and straight driving and
+ * @version 2.0
+ * changes by techtide, to allow PID and straight driving and
  *          changing direction every time it's run.
  */
 
