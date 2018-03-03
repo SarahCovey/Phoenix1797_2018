@@ -11,12 +11,12 @@ public class RightRampRetract extends Command {
 
 	public RightRampRetract() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.rightRamp);
+		requires(Robot.RIGHT_RAMP);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.rightRamp.retract();
+		Robot.RIGHT_RAMP.retract();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -25,12 +25,12 @@ public class RightRampRetract extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return System.currentTimeMillis() - Robot.rightRamp.getLastActuation() >= 1000;
+		return System.currentTimeMillis() - Robot.RIGHT_RAMP.getLastActuation() >= 1000;
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.rightRamp.stop();
+		Robot.RIGHT_RAMP.stop();
 	}
 
 	// Called when another command which requires one or more of the same

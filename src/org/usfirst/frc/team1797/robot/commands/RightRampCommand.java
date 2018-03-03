@@ -12,12 +12,12 @@ public class RightRampCommand extends Command {
 	public RightRampCommand() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(Robot.rightRamp);
+		requires(Robot.RIGHT_RAMP);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.rightRamp.lift();
+		Robot.RIGHT_RAMP.lift();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -31,7 +31,7 @@ public class RightRampCommand extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.rightRamp.retract();
+		Robot.RIGHT_RAMP.retract();
 	}
 
 	// Called when another command which requires one or more of the same

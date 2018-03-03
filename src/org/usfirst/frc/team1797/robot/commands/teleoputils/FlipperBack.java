@@ -20,17 +20,17 @@ public class FlipperBack extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.flipper.set(-.2);
+		Robot.FLIPPER.set(-.2);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return Robot.flipper.isBack();
+		return Robot.FLIPPER.isBack();
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.flipper.set(0);
+		Robot.FLIPPER.set(0);
 	}
 
 	// Called when another command which requires one or more of the same

@@ -17,24 +17,24 @@ public class MoveStraight extends Command {
 	public MoveStraight(double speed, double distance) {
 		this.driveSpeed = speed;
 		this.maxDistance = distance;
-		requires(Robot.driveTrain);
+		requires(Robot.DRIVETRAIN);
 	}
 
 	protected void initialize() {
-		Robot.driveTrain.resetEncoders();
+		Robot.DRIVETRAIN.resetEncoders();
 	}
 
 	protected void execute() {
 		// Calls the error correction drive (uses PID) to correct driving straight.
-		Robot.driveTrain.errorCorrectionDrive(-driveSpeed);
+		Robot.DRIVETRAIN.errorCorrectionDrive(-driveSpeed);
 	}
 
 	protected boolean isFinished() {
-		return Robot.driveTrain.getAverageEncoderDistance() >= maxDistance;
+		return Robot.DRIVETRAIN.getAverageEncoderDistance() >= maxDistance;
 	}
 
 	protected void end() {
-		Robot.driveTrain.arcadeDrive(0, 0);
+		Robot.DRIVETRAIN.arcadeDrive(0, 0);
 	}
 
 	protected void interrupted() {
