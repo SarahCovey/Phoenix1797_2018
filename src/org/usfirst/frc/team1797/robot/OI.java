@@ -2,9 +2,7 @@ package org.usfirst.frc.team1797.robot;
 
 import org.usfirst.frc.team1797.robot.commands.FlipCommand;
 import org.usfirst.frc.team1797.robot.commands.IntakeCommand;
-import org.usfirst.frc.team1797.robot.commands.LeftRampCommand;
 import org.usfirst.frc.team1797.robot.commands.OuttakeCommand;
-import org.usfirst.frc.team1797.robot.commands.RightRampCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -48,13 +46,8 @@ public class OI {
 	public JoystickButton intakeButton = new JoystickButton(operatorInput, 1);
 	public JoystickButton outtakeButton = new JoystickButton(operatorInput, 4);
 	public JoystickButton flipButton = new JoystickButton(operatorInput, 6);
-	public JoystickButton leftRampButton = new JoystickButton(operatorInput, 7);
-	public JoystickButton rightRampButton = new JoystickButton(operatorInput, 8);
-	public JoystickButton rampDeployButton = new JoystickButton(operatorInput, 9);
 
 	public OI() {
-		leftRampButton.toggleWhenPressed(new LeftRampCommand());
-		rightRampButton.toggleWhenPressed(new RightRampCommand());
 		flipButton.whenPressed(new FlipCommand());
 		outtakeButton.whileHeld(new OuttakeCommand());
 		intakeButton.whileHeld(new IntakeCommand());

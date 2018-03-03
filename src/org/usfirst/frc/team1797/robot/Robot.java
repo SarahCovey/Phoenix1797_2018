@@ -1,15 +1,10 @@
 package org.usfirst.frc.team1797.robot;
 
-import org.usfirst.frc.team1797.robot.commands.teleoputils.LeftRampRetract;
 import org.usfirst.frc.team1797.robot.commands.teleoputils.RetractIntake;
-import org.usfirst.frc.team1797.robot.commands.teleoputils.RightRampRetract;
 import org.usfirst.frc.team1797.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1797.robot.subsystems.Flipper;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeDeployPistons;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeMotors;
-import org.usfirst.frc.team1797.robot.subsystems.LeftRamp;
-import org.usfirst.frc.team1797.robot.subsystems.RampDeployPistons;
-import org.usfirst.frc.team1797.robot.subsystems.RightRamp;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -28,9 +23,6 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain DRIVETRAIN = new Drivetrain();
 	public static final IntakeMotors INTAKE_MOTORS = new IntakeMotors();
 	public static final IntakeDeployPistons INTAKE_DEPLOY_PISTONS = new IntakeDeployPistons();
-	public static final RampDeployPistons DEPLOY_RAMP = new RampDeployPistons();
-	public static final LeftRamp LEFT_RAMP = new LeftRamp();
-	public static final RightRamp RIGHT_RAMP = new RightRamp();
 	public static final Flipper FLIPPER = new Flipper();
 	public static OI oi;
 
@@ -86,8 +78,6 @@ public class Robot extends IterativeRobot {
 		autonomousCommand = (Command) autonomousChooser.getSelected();
 		if (autonomousCommand != null)
 			autonomousCommand.start();
-		Scheduler.getInstance().add(new LeftRampRetract());
-		Scheduler.getInstance().add(new RightRampRetract());
 		Scheduler.getInstance().add(new RetractIntake());
 	}
 
