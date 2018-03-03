@@ -25,7 +25,7 @@ public class DriveCommand extends Command {
 		double x = Robot.oi.driverInput.getRawAxis(RobotMap.DRIVER_FORWARD_AXIS);
 		double z = Robot.oi.driverInput.getRawAxis(RobotMap.DRIVER_HORIZONTAL_AXIS);
 
-		z *= z * z * Math.abs(z) * .7;
+		z *= .7;
 
 		Robot.DRIVETRAIN.arcadeDrive(-x * RobotMap.DRIVETRAIN_SENSITIVITY, z * RobotMap.DRIVETRAIN_SENSITIVITY);
 

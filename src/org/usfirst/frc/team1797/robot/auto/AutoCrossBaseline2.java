@@ -1,16 +1,18 @@
 package org.usfirst.frc.team1797.robot.auto;
 
+import org.usfirst.frc.team1797.robot.commands.auto.autoutils.AutoDeliverBoxMToL;
+import org.usfirst.frc.team1797.robot.commands.auto.autoutils.AutoDeliverBoxMToR;
 import org.usfirst.frc.team1797.robot.commands.auto.autoutils.DelayCommand;
-import org.usfirst.frc.team1797.robot.commands.auto.autoutils.MoveStraight;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class AutoCrossBaseline13 extends CommandGroup {
+public class AutoCrossBaseline2 extends CommandGroup {
 
-    public AutoCrossBaseline13() {
+    public AutoCrossBaseline2() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -30,6 +32,11 @@ public class AutoCrossBaseline13 extends CommandGroup {
     	
     	addSequential(new DelayCommand(0));
     	
-        addSequential(new MoveStraight(0.6, 196));
+    	char ch = DriverStation.getInstance().getGameSpecificMessage().toLowerCase().charAt(0);
+    	if(ch == 'l') {
+    		addSequential(new AutoDeliverBoxMToR());
+    	} else {
+    		addSequential(new AutoDeliverBoxMToL());
+    	}
     }
 }

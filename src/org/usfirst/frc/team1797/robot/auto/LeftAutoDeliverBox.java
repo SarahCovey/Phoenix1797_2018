@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1797.robot.auto;
 
 import org.usfirst.frc.team1797.robot.commands.FlipCommand;
+import org.usfirst.frc.team1797.robot.commands.auto.autoutils.AutoDeliverBoxLToL;
 import org.usfirst.frc.team1797.robot.commands.auto.autoutils.AutoDeliverBoxLToR;
 import org.usfirst.frc.team1797.robot.commands.auto.autoutils.DelayCommand;
 
@@ -29,10 +30,12 @@ public class LeftAutoDeliverBox extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	char ch = DriverStation.getInstance().getGameSpecificMessage().toLowerCase().charAt(0);
+
     	addSequential(new DelayCommand(0));
+    	
+    	char ch = DriverStation.getInstance().getGameSpecificMessage().toLowerCase().charAt(0);
     	if(ch == 'l') {
-    		addSequential(new AutoDeliverBoxLToR());
+    		addSequential(new AutoDeliverBoxLToL());
     	} else {
     		addSequential(new AutoDeliverBoxLToR());
     	}
