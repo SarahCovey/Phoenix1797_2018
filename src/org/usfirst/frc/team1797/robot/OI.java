@@ -1,6 +1,5 @@
 package org.usfirst.frc.team1797.robot;
 
-import org.usfirst.frc.team1797.robot.commands.CameraSwitchCommand;
 import org.usfirst.frc.team1797.robot.commands.FlipCommand;
 import org.usfirst.frc.team1797.robot.commands.IntakeCommand;
 import org.usfirst.frc.team1797.robot.commands.OuttakeCommand;
@@ -43,8 +42,6 @@ public class OI {
 
 	public Joystick driverInput = new Joystick(RobotMap.DRIVER_CONTROLLER_PORT);
 	public Joystick operatorInput = new Joystick(RobotMap.OPERATOR_CONTROLLER_PORT);
-
-	public JoystickButton cameraSwitchButton = new JoystickButton(driverInput, 6);
 	
 	public JoystickButton intakeButton = new JoystickButton(operatorInput, 1);
 	public JoystickButton outtakeButton = new JoystickButton(operatorInput, 4);
@@ -54,7 +51,5 @@ public class OI {
 		flipButton.whenPressed(new FlipCommand());
 		outtakeButton.whileHeld(new OuttakeCommand());
 		intakeButton.whileHeld(new IntakeCommand());
-		
-		cameraSwitchButton.whenPressed(new CameraSwitchCommand());
 	}
 }

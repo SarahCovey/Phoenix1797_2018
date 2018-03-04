@@ -35,10 +35,7 @@ public class Robot extends IterativeRobot {
 	public static final IntakeDeployPistons INTAKE_DEPLOY_PISTONS = new IntakeDeployPistons();
 	public static final Flipper FLIPPER = new Flipper();
 	public static OI oi;
-	
-	public static UsbCamera frontCamera = CameraServer.getInstance().startAutomaticCapture(0);
-	public static UsbCamera backCamera = CameraServer.getInstance().startAutomaticCapture(1);
-	public static UsbCamera currentCamera = frontCamera;
+
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
@@ -65,6 +62,8 @@ public class Robot extends IterativeRobot {
 		Robot.DRIVETRAIN.resetEncoders();
 		RobotMap.gyro.reset();
 		RobotMap.gyro.resetDisplacement();
+		
+		CameraServer.getInstance().startAutomaticCapture();
 	}
 
 	/**
