@@ -8,13 +8,12 @@ import org.usfirst.frc.team1797.robot.auto.LeftAutoDeliverBox;
 import org.usfirst.frc.team1797.robot.auto.MiddleAutoDeliverBox;
 import org.usfirst.frc.team1797.robot.auto.RightAutoDeliverBox;
 import org.usfirst.frc.team1797.robot.commands.auto.autoutils.DelayCommand;
-import org.usfirst.frc.team1797.robot.commands.teleoputils.RetractIntake;
+// import org.usfirst.frc.team1797.robot.commands.teleoputils.RetractIntake;
 import org.usfirst.frc.team1797.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1797.robot.subsystems.Flipper;
-import org.usfirst.frc.team1797.robot.subsystems.IntakeDeployPistons;
+// import org.usfirst.frc.team1797.robot.subsystems.IntakeDeployPistons;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeMotors;
 
-import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -32,7 +31,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 public class Robot extends IterativeRobot {
 	public static final Drivetrain DRIVETRAIN = new Drivetrain();
 	public static final IntakeMotors INTAKE_MOTORS = new IntakeMotors();
-	public static final IntakeDeployPistons INTAKE_DEPLOY_PISTONS = new IntakeDeployPistons();
+	// public static final IntakeDeployPistons INTAKE_DEPLOY_PISTONS = new IntakeDeployPistons();
 	public static final Flipper FLIPPER = new Flipper();
 	public static OI oi;
 
@@ -51,12 +50,6 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		autonomousChooser = new SendableChooser<Command>();
-		autonomousChooser.addDefault("Do Nothing", new DelayCommand(0));
-		autonomousChooser.addObject("Cross Baseline Side", new AutoCrossBaseline13());
-		autonomousChooser.addObject("Cross Baseline Middle", new AutoCrossBaseline2());
-		autonomousChooser.addObject("Deliver Box Left", new LeftAutoDeliverBox());
-		autonomousChooser.addObject("Deliver Box Middle", new MiddleAutoDeliverBox());
-		autonomousChooser.addObject("Deliver Box Right", new RightAutoDeliverBox());
 		
 		// Reset the AHRS gyro angles and displacement.
 		Robot.DRIVETRAIN.resetEncoders();
@@ -94,10 +87,17 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+//		autonomousChooser.addDefault("Do Nothing", new DelayCommand(0));
+//		autonomousChooser.addDefault("Cross Baseline Side", new AutoCrossBaseline13());
+		autonomousChooser.addDefault("Cross Baseline Middle", new AutoCrossBaseline2());
+//		autonomousChooser.addDefault("Deliver Box Left", new LeftAutoDeliverBox());
+//		autonomousChooser.addDefault("Deliver Box Middle", new MiddleAutoDeliverBox());
+//		autonomousChooser.addDefault("Deliver Box Right", new RightAutoDeliverBox());
+		
 		autonomousCommand = (Command) autonomousChooser.getSelected();
 		if (autonomousCommand != null)
 			autonomousCommand.start();
-		Scheduler.getInstance().add(new RetractIntake());
+		// Scheduler.getInstance().add(new RetractIntake());
 	}
 
 	/**
@@ -109,6 +109,7 @@ public class Robot extends IterativeRobot {
 		// System.out.println("Left Distance: " +
 		// Robot.DRIVE_TRAIN.leftEncoder.getDistance()
 		// + "Right Distance: " + Robot.DRIVE_TRAIN.rightEncoder.getDistance());
+		System.out.println("ROBOT: "+RobotMap.gyro.getAngle());
 	}
 
 	@Override

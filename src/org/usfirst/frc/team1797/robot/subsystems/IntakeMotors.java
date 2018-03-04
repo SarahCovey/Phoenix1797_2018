@@ -4,6 +4,7 @@ import org.usfirst.frc.team1797.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -16,14 +17,16 @@ public class IntakeMotors extends Subsystem {
 
 	// private VictorSP motor1, motor2;
 
-	private WPI_VictorSPX motor1, motor2;
+// 	private WPI_VictorSPX motor1, motor2;
+	
+	private VictorSP motor1, motor2;
 
 	public IntakeMotors() {
-		// motor1 = new VictorSP(RobotMap.getPort("intake_motor_1"));
-		// motor2 = new VictorSP(RobotMap.getPort("intake_motor_2"));
+		 motor1 = new VictorSP(RobotMap.getPort("intake_motor_1"));
+		 motor2 = new VictorSP(RobotMap.getPort("intake_motor_2"));
 
-		motor1 = new WPI_VictorSPX(RobotMap.getPort("intake_motor_1"));
-		motor2 = new WPI_VictorSPX(RobotMap.getPort("intake_motor_2"));
+//		motor1 = new WPI_VictorSPX(RobotMap.getPort("intake_motor_1"));
+//		motor2 = new WPI_VictorSPX(RobotMap.getPort("intake_motor_2"));
 	}
 
 	public void intake() {

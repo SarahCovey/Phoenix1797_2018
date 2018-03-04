@@ -9,13 +9,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;;
 
 public class AutoDeliverBoxRToR extends CommandGroup {
 	public AutoDeliverBoxRToR() {
-		// Move forward ~150 units till the robot is past the switch.
-		addSequential(new MoveStraight(0.7, 150));
-		// Now, turn at a right angle and hit the fence opposite the switch to wall
-		// align with it.
+		// Move forward ~168 units.
+		addSequential(new MoveStraight(0.7, 168));
+		// Turn left at an angle of 90 degrees.
 		addSequential(new TurnCommand(Direction.LEFT, 0.5, 90));
-		// Reverse so the robot hits the fence.
-		addSequential(new MoveStraight(0.7, 85.25));
-		// Deliver the box and throw it backwards.
-	}
+		// Move backwards ~85.25 (also try 15.625) units, to hit the fence and back into the wall.
+		addSequential(new MoveStraight(0.7, 18.625));
+    }
 }

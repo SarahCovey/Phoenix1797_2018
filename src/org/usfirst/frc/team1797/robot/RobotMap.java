@@ -55,32 +55,22 @@ public class RobotMap {
 
 // MOTORS:
 		// Drivetrain Motors
-		ROBOT_HARDWARE_PORTS.put("left_motor_1", 0);
-		ROBOT_HARDWARE_PORTS.put("left_motor_2", 1);
-		ROBOT_HARDWARE_PORTS.put("right_motor_1", 2);
-		ROBOT_HARDWARE_PORTS.put("right_motor_2", 3);
+		ROBOT_HARDWARE_PORTS.put("left_motor_1", 0); // 0
+		ROBOT_HARDWARE_PORTS.put("left_motor_2", 1); // 1
+		ROBOT_HARDWARE_PORTS.put("right_motor_1", 3); // 2
+		ROBOT_HARDWARE_PORTS.put("right_motor_2", 4); // 3
 
 		// Intake Motors
-		ROBOT_HARDWARE_PORTS.put("intake_motor_1", 4);
-		ROBOT_HARDWARE_PORTS.put("intake_motor_2", 5);
+		ROBOT_HARDWARE_PORTS.put("intake_motor_1", 5); // 4
+		ROBOT_HARDWARE_PORTS.put("intake_motor_2", 6); // 5
 
 		// Flipper Motor
-		ROBOT_HARDWARE_PORTS.put("flipper_motor", 6);
+		ROBOT_HARDWARE_PORTS.put("flipper_motor", 7); // 6
 
 // PISTONS:
 		// intake deploy pistons
-		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_1", 4);// 1
-		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_2", 5);// 0
-
-		// Ramp Pistons
-		ROBOT_HARDWARE_PORTS.put("left_ramp_1", 0);// 4
-		ROBOT_HARDWARE_PORTS.put("left_ramp_2", 1);// 5
-
-		ROBOT_HARDWARE_PORTS.put("right_ramp_1", 6);
-		ROBOT_HARDWARE_PORTS.put("right_ramp_2", 7);
-
-		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston_1", 2);
-		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston_2", 3);
+		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_1", 0);
+		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_2", 1);
 
 // SENSORS:
 		// Encoders

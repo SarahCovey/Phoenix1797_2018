@@ -10,10 +10,10 @@ public class DelayCommand extends Command {
 	private int milisec;
 	private long lastAct;
 
-	public DelayCommand(int milisec) {
+	public DelayCommand(int sec) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		this.milisec = milisec;
+		milisec = sec * 1000;
 	}
 
 	// Called just before this Command runs the first time

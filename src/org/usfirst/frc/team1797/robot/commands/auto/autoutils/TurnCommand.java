@@ -23,7 +23,7 @@ public class TurnCommand extends Command {
 		requires(Robot.DRIVETRAIN);
 		this.turnDirection = d;
 		this.turnRate = turnRate;
-		this.turnAngle = (d == Direction.LEFT) ? -turnAngle + 15 : turnAngle - 15;
+		this.turnAngle = (d == Direction.LEFT) ? -turnAngle + 5 : turnAngle - 10;
 		this.targetAngle = this.turnAngle;
 	}
 

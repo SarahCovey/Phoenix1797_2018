@@ -32,12 +32,14 @@ public class MiddleAutoDeliverBox extends CommandGroup {
         // arm.
 
     	addSequential(new DelayCommand(0));
-    	
     	char ch = DriverStation.getInstance().getGameSpecificMessage().toLowerCase().charAt(0);
+    	System.out.println(""+ch);
     	if(ch == 'l') {
     		addSequential(new AutoDeliverBoxMToL());
+    		System.out.println("in the LEFT if statement");
     	} else {
     		addSequential(new AutoDeliverBoxMToR());
+    		System.out.println("in the RIGHT if statement");
     	}
     	// addSequential(new FlipCommand());
     }

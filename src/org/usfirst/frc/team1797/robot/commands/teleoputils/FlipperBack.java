@@ -25,7 +25,7 @@ public class FlipperBack extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return Robot.FLIPPER.isBack();
+		return Robot.FLIPPER.isBack() || Robot.oi.flipperCancelButton.get();
 	}
 
 	// Called once after isFinished returns true

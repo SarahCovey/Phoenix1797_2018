@@ -26,7 +26,7 @@ public class MoveStraight extends Command {
 
 	protected void execute() {
 		// Calls the error correction drive (uses PID) to correct driving straight.
-		Robot.DRIVETRAIN.errorCorrectionDrive(-driveSpeed);
+		Robot.DRIVETRAIN.errorCorrectionDrive(driveSpeed);
 	}
 
 	protected boolean isFinished() {

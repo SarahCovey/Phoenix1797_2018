@@ -16,7 +16,7 @@ public class AutoDeliverBoxMToL extends CommandGroup {
     		// Move ~81 units forward after this.
     		addSequential(new MoveStraight(0.7, 81));
     		// Move right again, so then we can move backwards and hit the switch.
-    		addSequential(new TurnCommand(Direction.LEFT, 0.5, 90));
+    		addSequential(new TurnCommand(Direction.RIGHT, 0.5, 90));
     		// Move backwards ~70 units.
     		addSequential(new MoveStraight(0.7, 70));
     }

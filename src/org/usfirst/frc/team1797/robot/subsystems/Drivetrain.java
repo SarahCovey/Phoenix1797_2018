@@ -7,6 +7,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -18,26 +19,22 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 
-	// private final VictorSP left1 = new
-	// VictorSP(RobotMap.getPort("left_motor_1"));
-	// private final VictorSP left2 = new
-	// VictorSP(RobotMap.getPort("left_motor_2"));
-	// private final VictorSP right1 = new
-	// VictorSP(RobotMap.getPort("right_motor_1"));
-	// private final VictorSP right2 = new
-	// VictorSP(RobotMap.getPort("right_motor_2"));
+	 private final VictorSP left1 = new VictorSP(RobotMap.getPort("left_motor_1"));
+	 private final VictorSP left2 = new VictorSP(RobotMap.getPort("left_motor_2"));
+	 private final VictorSP right1 = new VictorSP(RobotMap.getPort("right_motor_1"));
+	 private final VictorSP right2 = new VictorSP(RobotMap.getPort("right_motor_2"));
 
-	private final WPI_VictorSPX left1 = new WPI_VictorSPX(RobotMap.getPort("left_motor_1"));
-	private final WPI_VictorSPX left2 = new WPI_VictorSPX(RobotMap.getPort("left_motor_2"));
-	private final WPI_VictorSPX right1 = new WPI_VictorSPX(RobotMap.getPort("right_motor_1"));
-	private final WPI_VictorSPX right2 = new WPI_VictorSPX(RobotMap.getPort("right_motor_2"));
+//	private final WPI_VictorSPX left1 = new WPI_VictorSPX(RobotMap.getPort("left_motor_1"));
+//	private final WPI_VictorSPX left2 = new WPI_VictorSPX(RobotMap.getPort("left_motor_2"));
+//	private final WPI_VictorSPX right1 = new WPI_VictorSPX(RobotMap.getPort("right_motor_1"));
+//	private final WPI_VictorSPX right2 = new WPI_VictorSPX(RobotMap.getPort("right_motor_2"));
 
 	private final SpeedControllerGroup left = new SpeedControllerGroup(left1, left2);
 	private final SpeedControllerGroup right = new SpeedControllerGroup(right1, right2);
 
 	private final DifferentialDrive DifferentialDrive = new DifferentialDrive(left, right);
 
-	private final double kp = 0.025;
+	private final double kp = 0.02;
 
 	// public final RobotDrive robotDrive = new RobotDrive(left, right);
 
