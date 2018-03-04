@@ -53,7 +53,7 @@ public class RobotMap {
 	private static HashMap<String, Integer> ROBOT_HARDWARE_PORTS = new HashMap<>();
 	static {
 
-		// MOTORS:
+// MOTORS:
 		// Drivetrain Motors
 		ROBOT_HARDWARE_PORTS.put("left_motor_1", 0);
 		ROBOT_HARDWARE_PORTS.put("left_motor_2", 1);
@@ -67,7 +67,7 @@ public class RobotMap {
 		// Flipper Motor
 		ROBOT_HARDWARE_PORTS.put("flipper_motor", 6);
 
-		// PISTONS:
+// PISTONS:
 		// intake deploy pistons
 		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_1", 4);// 1
 		ROBOT_HARDWARE_PORTS.put("intake_deploy_piston_2", 5);// 0
@@ -82,7 +82,7 @@ public class RobotMap {
 		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston_1", 2);
 		ROBOT_HARDWARE_PORTS.put("ramp_deploy_piston_2", 3);
 
-		// SENSORS:
+// SENSORS:
 		// Encoders
 		ROBOT_HARDWARE_PORTS.put("left_encoder_1", 0);
 		ROBOT_HARDWARE_PORTS.put("left_encoder_2", 1);

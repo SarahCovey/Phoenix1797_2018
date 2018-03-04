@@ -1,11 +1,21 @@
 package org.usfirst.frc.team1797.robot;
 
+import java.awt.Image;
+
+import org.usfirst.frc.team1797.robot.auto.AutoCrossBaseline13;
+import org.usfirst.frc.team1797.robot.auto.AutoCrossBaseline2;
+import org.usfirst.frc.team1797.robot.auto.LeftAutoDeliverBox;
+import org.usfirst.frc.team1797.robot.auto.MiddleAutoDeliverBox;
+import org.usfirst.frc.team1797.robot.auto.RightAutoDeliverBox;
+import org.usfirst.frc.team1797.robot.commands.auto.autoutils.DelayCommand;
 import org.usfirst.frc.team1797.robot.commands.teleoputils.RetractIntake;
 import org.usfirst.frc.team1797.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1797.robot.subsystems.Flipper;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeDeployPistons;
 import org.usfirst.frc.team1797.robot.subsystems.IntakeMotors;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -25,12 +35,16 @@ public class Robot extends IterativeRobot {
 	public static final IntakeDeployPistons INTAKE_DEPLOY_PISTONS = new IntakeDeployPistons();
 	public static final Flipper FLIPPER = new Flipper();
 	public static OI oi;
+	
+	public static UsbCamera frontCamera = CameraServer.getInstance().startAutomaticCapture(0);
+	public static UsbCamera backCamera = CameraServer.getInstance().startAutomaticCapture(1);
+	public static UsbCamera currentCamera = frontCamera;
 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	SendableChooser<Command> chooser = new SendableChooser<Command>();
 	@SuppressWarnings("deprecation")
 
-	SendableChooser autonomousChooser;
+	SendableChooser<Command> autonomousChooser;
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -39,8 +53,14 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		autonomousChooser = new SendableChooser();
-
+		autonomousChooser = new SendableChooser<Command>();
+		autonomousChooser.addDefault("Do Nothing", new DelayCommand(0));
+		autonomousChooser.addObject("Cross Baseline Side", new AutoCrossBaseline13());
+		autonomousChooser.addObject("Cross Baseline Middle", new AutoCrossBaseline2());
+		autonomousChooser.addObject("Deliver Box Left", new LeftAutoDeliverBox());
+		autonomousChooser.addObject("Deliver Box Middle", new MiddleAutoDeliverBox());
+		autonomousChooser.addObject("Deliver Box Right", new RightAutoDeliverBox());
+		
 		// Reset the AHRS gyro angles and displacement.
 		Robot.DRIVETRAIN.resetEncoders();
 		RobotMap.gyro.reset();
@@ -100,6 +120,7 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
 	}
 
 	/**
@@ -108,7 +129,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-
 	}
 
 	/**
